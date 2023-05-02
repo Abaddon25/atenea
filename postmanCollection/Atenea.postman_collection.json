@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "187a1fbe-6c5d-42f2-b499-b482cd8b5ef9",
+		"name": "Atenea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2685199"
+	},
+	"item": [
+		{
+			"name": "Activos",
+			"item": [
+				{
+					"name": "1. Cargar activos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/assets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Crear activos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Silla1\",\r\n    \"description\": \"Silla roja\",\r\n    \"type\": \"Silla\",\r\n    \"serial\": \"123L23JKL3J4LKJ2L34JK32J4LK2J4LK2J34K\",\r\n    \"internalInventoryNumber\": 3,\r\n    \"size\": 50,\r\n    \"high\": 90,\r\n    \"broad\": 34,\r\n    \"longAsset\": 20,\r\n    \"purchaseValue\": 5000,\r\n    \"purchaseDate\": \"2023-04-28\",\r\n    \"dischargeDate\": null,\r\n    \"state\": \"Activo\",\r\n    \"color\": \"Rojo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/assets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Cargar activos por serial",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/assets/serial/123L23JKL3J4LKJ2L34JK32J4LK2J4LK2J34K",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"assets",
+								"serial",
+								"123L23JKL3J4LKJ2L34JK32J4LK2J4LK2J34K"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Cargar activos por fecha de compra",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/assets/purchaseDate/2023-04-28",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"assets",
+								"purchaseDate",
+								"2023-04-28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Cargar activos por tipo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/assets/type/Silla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"assets",
+								"type",
+								"Silla"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Actualizar activos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"internalInventoryNumber\": 5,\r\n    \"dischargeDate\": \"2023-04-30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/assets/6a9eb246-5601-4fc4-8bcb-ddcf4922ec84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"assets",
+								"6a9eb246-5601-4fc4-8bcb-ddcf4922ec84"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Ciudades",
+			"item": [
+				{
+					"name": "1. Cargar ciudades",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/cities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Personas",
+			"item": [
+				{
+					"name": "1. Cargar personas",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/persons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Crear personas",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"80245370\",\r\n    \"name\": \"Oscar\",\r\n    \"lastName\": \"Perez\",\r\n    \"assets\": [\r\n        {\r\n            \"id\": \"2cd94c19-fc20-4df1-8599-49d0fd85c4f5\",\r\n            \"name\": \"Silla1\",\r\n            \"description\": \"Silla roja\",\r\n            \"type\": \"Silla\",\r\n            \"serial\": \"123L23JKL3J4LKJ2L34JK32J4LK2J4LK2J34K\",\r\n            \"internalInventoryNumber\": 3,\r\n            \"size\": 50,\r\n            \"high\": 90,\r\n            \"broad\": 34,\r\n            \"longAsset\": 20,\r\n            \"purchaseValue\": 5000.0,\r\n            \"purchaseDate\": \"2023-04-28\",\r\n            \"dischargeDate\": null,\r\n            \"state\": \"Activo\",\r\n            \"color\": \"Rojo\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/persons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Asignar activos personas",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"80245370\",\r\n    \"name\": \"Oscar\",\r\n    \"lastName\": \"Perez\",\r\n    \"assets\": [\r\n        {\r\n            \"id\": \"5ff66112-f4ae-43a2-8a2e-30a481bd7a2a\",\r\n            \"name\": \"Silla1\",\r\n            \"description\": \"Silla roja\",\r\n            \"type\": \"Silla\",\r\n            \"serial\": \"123L23JKL3J4LKJ2L34JK32J4LK2J4LK2J34K\",\r\n            \"internalInventoryNumber\": 3,\r\n            \"size\": 50,\r\n            \"high\": 90,\r\n            \"broad\": 34,\r\n            \"longAsset\": 20,\r\n            \"purchaseValue\": 5000.0,\r\n            \"purchaseDate\": \"2023-04-28\",\r\n            \"dischargeDate\": null,\r\n            \"state\": \"Activo\",\r\n            \"color\": \"Rojo\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/persons/assignAssets/bf0cb6d3-8f88-45a6-8d60-14e5af1330ba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"persons",
+								"assignAssets",
+								"bf0cb6d3-8f88-45a6-8d60-14e5af1330ba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Asignar activos areas",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Oficina 1\",\r\n    \"description\": \"oficina # 1\",\r\n    \"city\": {\r\n            \"id\": \"5ff66112-f4ae-43a2-8a2e-30a481bd7a2a\",\r\n            \"name\": \"Bogota\"\r\n        },\r\n    \"assets\": [{\r\n        \"id\": \"2cd94c19-fc20-4df1-8599-49d0fd85c4f5\",\r\n        \"name\": \"Silla1\",\r\n        \"description\": \"Silla roja\",\r\n        \"type\": \"Silla\",\r\n        \"serial\": \"123L23JKL3J4LKJ2L34JK32J4LK2J4LK2J34K\",\r\n        \"internalInventoryNumber\": 3,\r\n        \"size\": 50,\r\n        \"high\": 90,\r\n        \"broad\": 34,\r\n        \"longAsset\": 20,\r\n        \"purchaseValue\": 5000.0,\r\n        \"purchaseDate\": \"2023-04-28\",\r\n        \"dischargeDate\": null,\r\n        \"state\": \"Activo\",\r\n        \"color\": \"Rojo\"\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/areas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"areas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Areas",
+			"item": [
+				{
+					"name": "1. Cargar areas",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/areas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"areas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Crear areas",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Oficina 1\",\r\n    \"description\": \"oficina # 1\",\r\n    \"city\": {\r\n            \"id\": \"680d45df-3c91-4cd0-98e2-4e0effb94a7e\",\r\n            \"name\": \"Bogota\"\r\n        },\r\n    \"assets\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/areas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"areas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
